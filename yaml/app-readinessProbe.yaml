@@ -7,21 +7,21 @@ metadata:
     app: simpleapp
 spec:
   containers:
-  - name: simpleapp-container
-    image: nginx:latest
-    ports:
-    - containerPort: 80
-    livenessProbe:
-      httpGet:
-        path: /
-        port: 80
-      initialDelaySeconds: 1
-      timeoutSeconds: 1
-      periodSeconds: 10
-    readinessProbe:
-      httpGet:
-        path: /
-        port: 80
-      initialDelaySeconds: 1
-      timeoutSeconds: 2
-      periodSeconds: 2
+    - name: simpleapp-container
+      image: nginx:latest
+      ports:
+        - containerPort: 80
+      livenessProbe:
+        httpGet:
+          path: /
+          port: 80
+        initialDelaySeconds: 1
+        timeoutSeconds: 1
+        periodSeconds: 10
+      readinessProbe:
+        httpGet:
+          path: /
+          port: 80
+        initialDelaySeconds: 1
+        timeoutSeconds: 2
+        periodSeconds: 2

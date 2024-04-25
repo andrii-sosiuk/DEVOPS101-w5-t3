@@ -8,20 +8,20 @@ metadata:
 spec:
   restartPolicy: Never
   containers:
-  - name: nginx
-    image: nginx
-    ports:
-    - containerPort: 80
-    volumeMounts:
-    - name: html
-      mountPath: /usr/share/nginx/html
-  - name: bash
-    image: alpine
-    command: ["/bin/sh"]
-    args: ["-c", "while true; do date > /usr/share/nginx/html/index.html && sleep 1; done"]
-    volumeMounts:
-    - name: html
-      mountPath: /usr/share/nginx/html
+    - name: nginx
+      image: nginx
+      ports:
+        - containerPort: 80
+      volumeMounts:
+        - name: html
+          mountPath: /usr/share/nginx/html
+        - name: bash
+          image: alpine
+          command: ["/bin/sh"]
+          args: ["-c", "while true; do date > /usr/share/nginx/html/index.html && sleep 1; done"]
+          volumeMounts:
+            - name: html
+              mountPath: /usr/share/nginx/html
   volumes:
-  - name: html
-    emptyDir: {}
+    - name: html
+      emptyDir: {}

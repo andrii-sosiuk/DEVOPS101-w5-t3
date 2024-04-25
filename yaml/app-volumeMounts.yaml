@@ -1,3 +1,4 @@
+---
 apiVersion: v1
 kind: Pod
 metadata:
@@ -6,17 +7,17 @@ metadata:
     app: SimpleApp
 spec:
   containers:
-  - name: nginx
-    image: nginx:latest
-    ports:
-    - containerPort: 80
-    volumeMounts:
-    - name: data-volume
-      mountPath: /data
+    - name: nginx
+      image: nginx:latest
+      ports:
+        - containerPort: 80
+      volumeMounts:
+        - name: data-volume
+          mountPath: /data
   volumes:
-  - name: data-volume
-    hostPath:
-      path: /var/lib/data
+    - name: data-volume
+      hostPath:
+        path: /var/lib/data
   livenessProbe:
     httpGet:
       path: /

@@ -7,10 +7,10 @@ metadata:
     app: SimpleApp
 spec:
   containers:
-  - name: nginx
-    image: nginx:latest
-    ports:
-    - containerPort: 80x
+    - name: nginx
+      image: nginx:latest
+      ports:
+        - containerPort: 80x
   livenessProbe:
     httpGet:
       path: /
